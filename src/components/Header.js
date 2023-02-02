@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = (handleToken) => {
   return (
     <div>
       <p>Logo</p>
@@ -10,7 +10,13 @@ const Header = () => {
       <Link to="/signup">
         <button>S'inscrire</button>
       </Link>
-      <button>Déconnexion</button>
+      <button
+        onClick={() => {
+          handleToken();
+        }}
+      >
+        Déconnexion
+      </button>
     </div>
   );
 };
