@@ -1,11 +1,14 @@
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Signup = ({ handleToken }) => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [newsLetter, setNewsLetter] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -16,6 +19,7 @@ const Signup = ({ handleToken }) => {
       );
       /*  console.log(response.data); */
       handleToken(response.data.token);
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
