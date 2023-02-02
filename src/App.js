@@ -2,6 +2,7 @@ import "./App.css";
 /* Import packages */
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Cookies from "js-cookie";
+import { useState } from "react";
 /* Import pages */
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
@@ -11,16 +12,19 @@ import Login from "./pages/Login";
 import Header from "./components/Header";
 
 function App() {
+  const [userToken, setUserToken] = useState(Cookies.get("usertoken") || null);
   const handleToken = (token) => {
     if (token) {
       Cookies.set("userToken", token, { expires: 7 });
+      setUserToken(token);
     } else {
       Cookies.remove("userToken");
+      setUserToken(null);
     }
   };
   return (
     <Router>
-      <Header handleToken={handleToken} />
+      <Header handleToken={handleToken} userToken={userToken} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/offer/:id" element={<Offer />} />
