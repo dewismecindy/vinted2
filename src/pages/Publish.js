@@ -1,5 +1,6 @@
 import { Navigate } from "react-router-dom";
 import { useState } from "react";
+import axios from "axios";
 
 const Publish = ({ userToken }) => {
   const [picture, setPicture] = useState();
@@ -12,7 +13,7 @@ const Publish = ({ userToken }) => {
   const [location, setLocation] = useState("");
   const [price, setPrice] = useState(0);
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     try {
       const formData = new FormData();
       formData.append("title", title);
@@ -24,19 +25,38 @@ const Publish = ({ userToken }) => {
       formData.append("size", size);
       formData.append("color", color);
       formData.append("picture", picture);
+
+      const response = await axios.post(
+        "https://lereacteur-vinted-api.herokuapp.com/offer/publish",
+        formData,
+        {
+          headers: {
+            authorization: `Bearer ${userToken}`,
+          },
+        }
+      );
     } catch (error) {
-      console.log(error);
+      console.log(error.response.data);
     }
   };
 
   return userToken ? (
     <form className="signup-container">
-      <input
-        type="file"
-        onChange={(event) => {
-          setPicture(event.target.files[0]);
-        }}
-      />
+      {!picture ? (
+        <div className="file-container">
+          <label htmlFor="file">Ajouter une photo</label>
+          <input
+            id="file"
+            type="file"
+            onChange={(event) => {
+              setPicture(event.target.files[0]);
+            }}
+          />
+        </div>
+      ) : (
+        <img src={URL.createObjectURL(picture)} alt="" />
+      )}
+
       <input
         value={title}
         type="text"

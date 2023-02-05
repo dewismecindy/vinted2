@@ -13,13 +13,15 @@ import Publish from "./pages/Publish";
 
 /* Import des components */
 import Header from "./components/Header";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 function App() {
   const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
 
   const handleToken = (token) => {
     if (token) {
-      Cookies.set("userToken", token, { expires: 7 });
+      Cookies.set("userToken", token, { expires: 1 });
       setUserToken(token);
     } else {
       Cookies.remove("userToken");
@@ -29,13 +31,16 @@ function App() {
   return (
     <Router>
       <Header handleToken={handleToken} userToken={userToken} />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+
         <Route path="/offer/:id" element={<Offer />} />
         <Route path="/signup" element={<Signup handleToken={handleToken} />} />
         <Route path="/login" element={<Login handleToken={handleToken} />} />
         <Route path="/publish" element={<Publish userToken={userToken} />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }

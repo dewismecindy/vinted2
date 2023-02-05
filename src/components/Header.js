@@ -3,28 +3,38 @@ import { Link } from "react-router-dom";
 const Header = ({ handleToken, userToken }) => {
   return (
     <div>
-      <p>Logo</p>
+      <div>
+        <Link to="/">
+          <img
+            src="https://www.vinted.fr/assets/web-logo/default/logo.svg"
+            alt="Vinted"
+          />
+        </Link>
+      </div>
+
       {!userToken ? (
         <>
           <Link to="/login">
-            <button>Connexion</button>
+            <div className="button">Connexion</div>
           </Link>
           <Link to="/signup">
-            <button>S'inscrire</button>
+            <div className="button">S'inscrire</div>
           </Link>
         </>
       ) : (
-        <button
+        <div
+          className="button"
           onClick={() => {
             handleToken();
           }}
         >
           Déconnexion
-        </button>
+        </div>
       )}
       <Link to="/publish">
         <button>Vends tes articles</button>
       </Link>
+      <div className="line"></div>
     </div>
   );
 };
