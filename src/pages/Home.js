@@ -47,6 +47,12 @@ const Home = () => {
           />
         </div>
       </div>
+      <div className="offers-list">
+        <div className="populaire">ARTICLES POPULAIRE</div>
+        <Link to="/Offers">
+          <div className="see-all">Voir tout</div>
+        </Link>
+      </div>
       <div>
         {data.offers.map((offer, index) => {
           return (

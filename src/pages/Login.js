@@ -1,48 +1,87 @@
-import { useState } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-const Login = ({ handleToken }) => {
+const Login = ({ transferToken }) => {
+  // MES USESTATE
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [infos, setInfos] = useState(false);
 
+  // MES VARIABLES
   const navigate = useNavigate();
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await axios.post(
-        "https://lereacteur-vinted-api.herokuapp.com/user/login",
-        {
-          email,
-          password,
-        }
-      );
-      /* console.log(response.data); */
-      handleToken(response.data.token);
-      navigate("/");
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  function refreshPage() {
+    window.location.reload(false);
+  }
 
   return (
-    <form className="signup-container" onSubmit={handleSubmit}>
-      <h1>Se connecter</h1>
-      <input
-        type="email"
-        placeholder="email"
-        value={email}
-        onChange={(event) => setEmail(event.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="password"
-        value={password}
-        onChange={(event) => setPassword(event.target.value)}
-      />
-      <input type="submit" value="connection" />{" "}
-    </form>
+    <div className="formulaire">
+      <div className="App">
+        <h1>Se connecter</h1>
+        {infos === false ? (
+          <div className="input-block">
+            <div>
+              <p className="input-text">Email</p>
+              <input
+                className="input"
+                onChange={(elem) => setEmail(elem.target.value)}
+                type="email"
+                placeholder="Votre adresse mail"
+                name="email"
+                value={email}
+              />
+            </div>
+            <div>
+              <p className="input-text">Mot de passe</p>
+              <input
+                className="input"
+                onChange={(elem) => setPassword(elem.target.value)}
+                type="password"
+                name="password"
+                value={password}
+              />
+            </div>
+            <div>
+              <button
+                className="logging-button"
+                onClick={() => {
+                  if (email === "") {
+                    alert(`Il manque des informations`);
+                  } else {
+                    setInfos(true);
+
+                    const data = async () => {
+                      try {
+                        const response = await axios.post(
+                          "https://site--backend-vinted--6qn7tv96v7tt.code.run/user/login",
+                          {
+                            email: email,
+                            password: password,
+                          }
+                        );
+                        const token = response.data.token;
+                        transferToken(token);
+                        navigate("/");
+                      } catch (error) {
+                        console.log(error.message);
+                      }
+                    };
+                    data();
+                  }
+                }}
+              >
+                Se connecter
+              </button>
+            </div>
+          </div>
+        ) : (
+          <>
+            <p className="product-description">Vos identifiants sont mauvais</p>
+            <button onClick={refreshPage}>Retry</button>
+          </>
+        )}
+      </div>
+    </div>
   );
 };
 
