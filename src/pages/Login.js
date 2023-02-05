@@ -2,20 +2,24 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const Login = (handleToken) => {
+const Login = ({ handleToken }) => {
   const [email, setEmail] = useState("");
-
   const [password, setPassword] = useState("");
+
   const navigate = useNavigate();
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       const response = await axios.post(
         "https://lereacteur-vinted-api.herokuapp.com/user/login",
-        { email, password }
+        {
+          email,
+          password,
+        }
       );
       /* console.log(response.data); */
-      handleToken = response.data.tokken;
+      handleToken(response.data.token);
       navigate("/");
     } catch (error) {
       console.log(error);
@@ -24,7 +28,6 @@ const Login = (handleToken) => {
 
   return (
     <form className="signup-container" onSubmit={handleSubmit}>
-      {" "}
       <h1>Se connecter</h1>
       <input
         type="email"

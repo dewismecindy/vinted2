@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Header = (handleToken, userToken) => {
+const Header = ({ handleToken, userToken }) => {
   return (
     <div>
       <p>Logo</p>
@@ -22,6 +22,9 @@ const Header = (handleToken, userToken) => {
           Déconnexion
         </button>
       )}
+      <Link to="/publish">
+        <button>Vends tes articles</button>
+      </Link>
     </div>
   );
 };
