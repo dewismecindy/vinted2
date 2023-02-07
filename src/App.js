@@ -1,48 +1,65 @@
 import "./App.css";
-/* Import packages */
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Cookies from "js-cookie";
 import { useState } from "react";
-
-/* Import pages */
+import Cookies from "js-cookie";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
+import Header from "./components/Header";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Publish from "./pages/Publish";
-
-/* Import des components */
-import Header from "./components/Header";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Payment from "./pages/Payment";
 
 function App() {
-  const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
+  const [token, setToken] = useState(Cookies.get("token") || null);
+  const [title, setTitle] = useState("");
+  const [priceMin, setPriceMin] = useState(0);
 
   const handleToken = (token) => {
     if (token) {
-      Cookies.set("userToken", token, { expires: 1 });
-      setUserToken(token);
+      Cookies.set("token", token, { expires: 7, sameSite: "strict" });
     } else {
-      Cookies.remove("userToken");
-      setUserToken(null);
+      Cookies.remove("token");
     }
+    setToken(token);
   };
+
   return (
     <Router>
-      <Header handleToken={handleToken} userToken={userToken} />
-      <Navbar />
+      <Header
+        token={token}
+        setToken={setToken}
+        handleToken={handleToken}
+        title={title}
+        setTitle={setTitle}
+        priceMin={priceMin}
+        setPriceMin={setPriceMin}
+      />
       <Routes>
-        <Route path="/" element={<Home />} />
-
+        <Route
+          path="/"
+          element={
+            <Home
+              title={title}
+              setTitle={setTitle}
+              priceMin={priceMin}
+              setPriceMin={setPriceMin}
+            />
+          }
+        />
         <Route path="/offer/:id" element={<Offer />} />
-        <Route path="/signup" element={<Signup handleToken={handleToken} />} />
-        <Route path="/login" element={<Login handleToken={handleToken} />} />
-        <Route path="/publish" element={<Publish userToken={userToken} />} />
+        <Route
+          path="/signup"
+          element={<Signup setToken={setToken} handleToken={handleToken} />}
+        />
+        <Route
+          path="/login"
+          element={<Login setToken={setToken} handleToken={handleToken} />}
+        />
+        <Route path="/publish" element={<Publish />} />
+        <Route path="/payment" element={<Payment />} />
       </Routes>
-      <Footer />
     </Router>
   );
 }
-
 export default App;

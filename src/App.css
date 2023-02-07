@@ -704,3 +704,27 @@ h2 {
   margin-bottom: 30px;
   border: 1px solid rgb(225, 225, 225);
 }
+
+/* PAYMENT PAGE */
+.payment-page {
+  background-color: lightgrey;
+  width: 100vw;
+  height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.payment-bloc {
+  background-color: white;
+  width: 800px;
+  height: 500px;
+}
+.payment-bloc > div {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 50px;
+}
+.payment-bloc form {
+  margin: 40px 50px;
+  width: calc(100% - 100px);
+}
