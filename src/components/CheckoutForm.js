@@ -31,7 +31,7 @@ const CheckoutForm = ({ offerDetails, price }) => {
             {
               token: stripeToken,
               // le token que vous avez reçu de l'API Stripe
-              title: offerDetails.product_name,
+              product: offerDetails.product_name,
               amount: price,
               // le prix indiquée dans l'annonce
             }
@@ -50,7 +50,7 @@ const CheckoutForm = ({ offerDetails, price }) => {
                 },
               }
             );
-            console.log("ca donne ya pas à dire => ", deleteResponse.data);
+            console.log("Merci => ", deleteResponse.data);
           }
         } catch (error) {
           console.log(error.response);
@@ -58,11 +58,7 @@ const CheckoutForm = ({ offerDetails, price }) => {
       }}
     >
       <CardElement />
-      {isPaymentDone ? (
-        <p>Le paiement a été accepté !</p>
-      ) : (
-        <button>PAY</button>
-      )}
+      {isPaymentDone ? <p>Le paiement est confirmé</p> : <button>Achat</button>}
     </form>
   );
 };

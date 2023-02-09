@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const Login = ({ transferToken }) => {
+const Login = ({ handleToken }) => {
   // MES USESTATE
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -46,21 +46,21 @@ const Login = ({ transferToken }) => {
                 className="logging-button"
                 onClick={() => {
                   if (email === "") {
-                    alert(`Il manque des informations`);
+                    alert(`Your informations are not complete`);
                   } else {
                     setInfos(true);
 
                     const data = async () => {
                       try {
                         const response = await axios.post(
-                          "https://site--backend-vinted--6qn7tv96v7tt.code.run/user/login",
+                          "https://lereacteur-vinted-api.herokuapp.com/offers/user/login",
                           {
                             email: email,
                             password: password,
                           }
                         );
                         const token = response.data.token;
-                        transferToken(token);
+                        handleToken(token);
                         navigate("/");
                       } catch (error) {
                         console.log(error.message);
@@ -76,7 +76,9 @@ const Login = ({ transferToken }) => {
           </div>
         ) : (
           <>
-            <p className="product-description">Vos identifiants sont mauvais</p>
+            <p className="product-description">
+              Vos identifiants sont incorrects, réessayez
+            </p>
             <button onClick={refreshPage}>Retry</button>
           </>
         )}

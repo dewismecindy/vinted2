@@ -5,14 +5,21 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 import Header from "./components/Header";
+import Navbar from "./components/Navbar";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Publish from "./pages/Publish";
-import Payment from "./pages/Payment";
-
+import OfferPay from "./pages/OfferPay";
+import Offerslist from "./pages/Offerslist";
+import Footer from "./components/Footer";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 function App() {
+  const stripePromise = loadStripe(
+    "pk_live_51MXnjiLt4xsVvemDPADf6JNNagp6S3vhx7BRUHUSDsSkgmFkkFoIOIUcFxm2g2zfuwnEaF89oXp5DYz1s3RCfCAs00pdEoo98C"
+  );
   const [token, setToken] = useState(Cookies.get("token") || null);
-  const [title, setTitle] = useState("");
+  const [product, setproduct] = useState("");
   const [priceMin, setPriceMin] = useState(0);
 
   const handleToken = (token) => {
@@ -30,18 +37,19 @@ function App() {
         token={token}
         setToken={setToken}
         handleToken={handleToken}
-        title={title}
-        setTitle={setTitle}
+        product={product}
+        setproduct={setproduct}
         priceMin={priceMin}
         setPriceMin={setPriceMin}
       />
+      <Navbar />
       <Routes>
         <Route
           path="/"
           element={
             <Home
-              title={title}
-              setTitle={setTitle}
+              product={product}
+              setproduct={setproduct}
               priceMin={priceMin}
               setPriceMin={setPriceMin}
             />
@@ -49,17 +57,34 @@ function App() {
         />
         <Route path="/offer/:id" element={<Offer />} />
         <Route
-          path="/signup"
-          element={<Signup setToken={setToken} handleToken={handleToken} />}
+          path="/offer/pay"
+          element={
+            token ? (
+              <Elements stripe={stripePromise}>
+                <OfferPay token={token} />
+              </Elements>
+            ) : (
+              <Signup />
+            )
+          }
+        />
+        <Route path="/signup" element={<Signup />} />
+        <Route
+          path="/Offers"
+          element={<Offerslist product={product} setproduct={setproduct} />}
+        />
+        <Route
+          path="/publish"
+          element={token ? <Publish token={token} /> : <Signup />}
         />
         <Route
           path="/login"
-          element={<Login setToken={setToken} handleToken={handleToken} />}
+          element={<Login handleToken={handleToken} token={token} />}
         />
-        <Route path="/publish" element={<Publish />} />
-        <Route path="/payment" element={<Payment />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }
+
 export default App;

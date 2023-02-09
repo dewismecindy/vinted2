@@ -22,17 +22,17 @@ const Home = () => {
     fetchData();
   }, []);
   return isLoading ? (
-    <p className="loading-text">En cours de chargement ...</p>
+    <p className="messageLoading">En cours de chargement ...</p>
   ) : (
     <>
       {" "}
-      <div className="img-advertise">
+      <div className="imgHome">
         <img
           src="https://static.vinted.com/assets/seller-promotion/gender_test/a/banner-wide-7403f719caac875cfeea61593da7fc7e7320c126193b4ff654e4397f54d430ae.jpg"
           alt=""
         />
-        <div className="box-advertise">
-          <div className="style-advertise">
+        <div className="imgPresentation">
+          <div className="messagePresentation">
             Prêts à faire du tri dans vos placards ?
           </div>
           <Link to="/Publish">
@@ -49,21 +49,23 @@ const Home = () => {
       </div>
       <div className="offers-list">
         <div className="populaire">ARTICLES POPULAIRE</div>
-        <Link to="/Offers">
+        <Link to="/Offer">
           <div className="see-all">Voir tout</div>
         </Link>
       </div>
-      <div>
+      <div className="introduction">
         {data.offers.map((offer, index) => {
           return (
-            <Link
-              className="linkOffers"
-              key={offer._id}
-              to={`/offer/${offer._id}`}
-            >
-              <p>{offer.product_name}</p>
-              <img src={offer.product_image.secure_url} alt="" />
-            </Link>
+            <div className="sell-card">
+              <Link
+                className="image-container"
+                key={offer._id}
+                to={`/offer/${offer._id}`}
+              >
+                <p>{offer.product_name}</p>
+                <img src={offer.product_image.secure_url} alt="" />
+              </Link>
+            </div>
           );
         })}
       </div>

@@ -2,6 +2,12 @@
   margin-left: 0;
   margin-right: 0;
 }
+.signature {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+}
 
 a:link {
   text-decoration: none;
@@ -15,10 +21,6 @@ a:hover {
   text-decoration: none;
 }
 
-a:active {
-  text-decoration: none;
-}
-
 .loading {
   display: flex;
   justify-content: center;
@@ -26,30 +28,25 @@ a:active {
   font-size: 30px;
 }
 
-.loading-text {
+.messageLoading {
   color: #007782;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-input {
-  border: none;
-}
-
 header {
-  margin-top: -10px;
+  margin-top: 8px;
+  margin-left: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 1100px;
 }
 
 .header-style {
+  height: 30px;
   display: flex;
   gap: 20px;
-  height: 30px;
 }
 
 .line {
@@ -59,26 +56,23 @@ header {
 .search-bar {
   height: 30px;
   width: 500px;
-  background-color: rgba(235, 235, 235, 0.528);
-  border: none;
-  border-radius: 4px;
-  outline: none;
-  padding-left: 5px;
+  background-color: lightcyan;
+  border-radius: 5px;
+  padding-left: 15px;
 }
 
 .search-bar::-webkit-input-placeholder {
-  padding: 2px;
-  opacity: 0.3;
+  opacity: 0.2;
 }
 
 .button {
+  background-color: white;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   color: #007782;
-  background-color: white;
   border: solid 1px #007782;
-  padding: 6px;
+  padding: 5px;
   border-radius: 5px;
   display: flex;
   justify-content: center;
@@ -86,26 +80,21 @@ header {
   box-sizing: border-box;
 }
 
-.button-sell {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 14px;
-  color: rgb(255, 255, 255);
-  background-color: #007782;
-  border: solid 1px #007782;
-  padding: 6px;
-  border-radius: 5px;
+.forPublish {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: rgb(255, 255, 255);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  background-color: #007782;
+  border: solid 1px #007782;
+  padding: 5px;
+  border-radius: 5px;
 }
 
-.button:hover,
-.button-sell:hover {
-  cursor: pointer;
-}
-
-.nav-bar {
+.navBar {
   height: 30px;
   align-items: center;
   display: flex;
@@ -116,7 +105,7 @@ header {
   margin-bottom: 10px;
 }
 
-.button-nav-bar {
+.buttonOfNavbar {
   padding: 10px;
   word-spacing: 2px;
   font-size: 14px;
@@ -125,12 +114,12 @@ header {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-.button-nav-bar:hover {
+.buttonOfNavbar:hover {
   background-color: rgb(243, 243, 243);
   cursor: pointer;
 }
 
-.box-advertise {
+.imgPresentation {
   position: absolute;
   background-color: white;
   border-radius: 3px;
@@ -149,19 +138,15 @@ header {
   transform: translate(-50%, -50%);
 }
 
-.style-advertise {
+.messagePresentation {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 30px;
   width: 200px;
   margin-left: 10px;
 }
 
-.avertise-button {
-  width: 100%;
-}
-
-.img-advertise {
-  height: 560px;
+.imgHome {
+  height: 500px;
   position: relative;
 }
 
@@ -178,7 +163,7 @@ header {
   max-height: 200px;
 }
 
-.img-advertise img {
+.imgHome img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -201,10 +186,6 @@ header {
   margin-bottom: 90px;
 }
 
-.sell-card:hover {
-  cursor: pointer;
-}
-
 .avatar {
   width: 25px;
   height: 25px;
@@ -214,6 +195,7 @@ header {
   object-position: center;
 }
 
+/* Dimension des images publiées et positionnement*/
 .image-container {
   margin-top: 10px;
   height: 320px;
@@ -277,7 +259,7 @@ header {
   object-position: center;
 }
 
-.master {
+.listOffers {
   height: 100vh;
   background: rgb(208, 208, 208);
   background: linear-gradient(
@@ -383,10 +365,6 @@ button {
   height: 200px;
 }
 
-.checkmark {
-  accent-color: #007782;
-}
-
 button:hover {
   cursor: pointer;
 }
@@ -394,24 +372,12 @@ button:hover {
 .formulaire {
   margin-left: auto;
   margin-right: auto;
-  min-height: 80vh;
-  width: 300px;
+  min-height: 50vh;
+  width: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-}
-
-.flexbox-letter {
-  margin-top: 10px;
-  display: flex;
-  width: 280px;
-}
-
-span {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 15px;
 }
 
 h1 {
@@ -447,7 +413,7 @@ h1 {
   outline-color: #007782;
 }
 
-.already-member {
+.oldMember {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   margin-top: 8px;
@@ -489,14 +455,11 @@ h1 {
   font-size: 17px;
 }
 
-.see-all-2 {
+.back-return {
   cursor: pointer;
-  margin-bottom: -20px;
-}
-
-.see-all-2:hover {
-  cursor: pointer;
-  opacity: 80%;
+  margin-bottom: -5px;
+  margin-top: 10px;
+  margin-left: 50px;
 }
 
 .populaire {
@@ -504,7 +467,7 @@ h1 {
   font-size: 20px;
 }
 
-.nav-bar-offers {
+.navBar-offers {
   padding: 10px;
   display: flex;
   margin-left: auto;
@@ -536,30 +499,19 @@ h1 {
   opacity: 0.3;
 }
 
-.banner-banner {
-  display: flex;
-  justify-content: center;
-  padding: 20px;
-  margin-bottom: 15px;
-}
-
-.advertise-banner img {
-  cursor: pointer;
-}
-
 .offers-list {
   position: relative;
-  margin-top: 12px;
-  margin-right: auto;
-  margin-left: auto;
-  padding-top: 10px;
   max-width: 1170px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 17px;
+  font-size: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 10px;
+  margin-top: 12px;
 }
 
 footer {
@@ -575,12 +527,12 @@ footer > .footer-flex {
   justify-content: center;
 }
 
-footer > .footer-flex .nav-bar .button-nav-bar {
+footer > .footer-flex .navBar .buttonOfNavbar {
   font-size: 13px;
   color: #868686;
 }
 
-footer > .footer-flex .nav-bar .button-nav-bar:hover {
+footer > .footer-flex .navBar .buttonOfNavbar:hover {
   background-color: white;
   text-decoration: underline;
 }
@@ -614,7 +566,7 @@ footer > .footer-flex .nav-bar .button-nav-bar:hover {
   height: 35px;
 }
 
-.master-2 {
+.listOffers-2 {
   min-height: 130vh;
   background: rgb(208, 208, 208);
   background: linear-gradient(
@@ -727,4 +679,7 @@ h2 {
 .payment-bloc form {
   margin: 40px 50px;
   width: calc(100% - 100px);
+}
+input {
+  border: none;
 }

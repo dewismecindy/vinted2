@@ -1,14 +1,14 @@
 const Navbar = () => {
   return (
-    <div className="nav-bar">
-      <div className="button-nav-bar">Femmes</div>
-      <div className="button-nav-bar">Hommes</div>
-      <div className="button-nav-bar">Enfants</div>
-      <div className="button-nav-bar">Maison</div>
-      <div className="button-nav-bar">Divertissement</div>
-      <div className="button-nav-bar">Animaux</div>
-      <div className="button-nav-bar">A propos</div>
-      <div className="button-nav-bar">Notre Plateforme</div>
+    <div className="navBar">
+      <div className="buttonOfNavbar">Femmes</div>
+      <div className="buttonOfNavbar">Hommes</div>
+      <div className="buttonOfNavbar">Enfants</div>
+      <div className="buttonOfNavbar">Maison</div>
+      <div className="buttonOfNavbar">Divertissement</div>
+      <div className="buttonOfNavbar">Animaux</div>
+      <div className="buttonOfNavbar">A propos</div>
+      <div className="buttonOfNavbar">Notre Plateforme</div>
     </div>
   );
 };

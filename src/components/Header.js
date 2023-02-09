@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
-const Header = ({ token, transferToken, product, setProduct }) => {
+const Header = ({ token, handleToken, title, setTitle }) => {
   return (
-    <div className="sticky-header">
+    <div className="enTete">
       <header>
         <div>
           <Link to="/">
@@ -18,9 +18,9 @@ const Header = ({ token, transferToken, product, setProduct }) => {
           placeholder="Rechercher des articles"
           name="Vinted"
           onChange={(event) => {
-            setProduct(event.target.value);
+            setTitle(event.target.value);
           }}
-          value={product}
+          value={title}
         />
         <div className="header-style">
           {token === null ? (
@@ -31,14 +31,14 @@ const Header = ({ token, transferToken, product, setProduct }) => {
             <div
               className="button"
               onClick={() => {
-                transferToken(null);
+                handleToken(null);
               }}
             >
               Déconnecter
             </div>
           )}
           <Link to="/Publish">
-            <div className="button-sell">Vendre tes articles</div>
+            <div className="forPublish">Vendre tes articles</div>
           </Link>
         </div>
       </header>{" "}

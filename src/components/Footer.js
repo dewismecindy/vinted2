@@ -2,15 +2,19 @@ const Footer = () => {
   return (
     <footer>
       <div className="footer-flex">
-        <div className="nav-bar">
-          <div className="button-nav-bar">Politique de Confidentialité</div>
-          <div className="button-nav-bar">Politique de cookies</div>
-          <div className="button-nav-bar">Paramètres des cookies</div>
-          <div className="button-nav-bar">Termes et Conditions</div>
-          <div className="button-nav-bar">Notre plateforme</div>
-          <div className="button-nav-bar">Conditions de vente pro</div>
-          <div className="button-nav-bar">Conditions d'utilisation Pro</div>
+        <div className="navBar">
+          <div className="buttonOfNavbar">Politique de Confidentialité</div>
+          <div className="buttonOfNavbar">Politique de cookies</div>
+          <div className="buttonOfNavbar">Paramètres des cookies</div>
+          <div className="buttonOfNavbar">Termes et Conditions</div>
+          <div className="buttonOfNavbar">Notre plateforme</div>
+          <div className="buttonOfNavbar">Conditions de vente pro</div>
+          <div className="buttonOfNavbar">Conditions d'utilisation Pro</div>
         </div>
+      </div>
+      <div className="signature">
+        {" "}
+        <p>🫅🏻 By Cindewi 🫅🏻</p>{" "}
       </div>
     </footer>
   );
