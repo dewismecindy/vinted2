@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = ({ token, handleToken, title, setTitle }) => {
+  const navigate = useNavigate;
   return (
-    <div className="enTete">
+    <div className="sticky-header">
       <header>
         <div>
           <Link to="/">
@@ -22,25 +23,30 @@ const Header = ({ token, handleToken, title, setTitle }) => {
           }}
           value={title}
         />
-        <div className="header-style">
-          {token === null ? (
-            <Link to="/Signup">
-              <div className="button">S'inscrire | Se connecter</div>
-            </Link>
-          ) : (
-            <div
-              className="button"
+        {token ? (
+          <div className="sign-up">
+            <button
               onClick={() => {
                 handleToken(null);
+                navigate("/");
               }}
             >
-              Déconnecter
-            </div>
-          )}
-          <Link to="/Publish">
-            <div className="forPublish">Vendre tes articles</div>
-          </Link>
-        </div>
+              se déconnecter
+            </button>
+          </div>
+        ) : (
+          <div className="sign-up">
+            <Link to="/signup">
+              <button>s'inscrire</button>
+            </Link>
+            <Link to="/login">
+              <button>se connecter</button>
+            </Link>
+          </div>
+        )}
+        <Link to="/Publish">
+          <button className="button">vends tes articles</button>
+        </Link>
       </header>{" "}
       <div className="line"></div>
     </div>
