@@ -46,7 +46,7 @@ const Login = ({ handleToken }) => {
                 className="logging-button"
                 onClick={() => {
                   if (email === "") {
-                    alert(`Your informations are not complete`);
+                    alert(`Les informations sont incomplètes`);
                   } else {
                     setInfos(true);
 
@@ -79,7 +79,7 @@ const Login = ({ handleToken }) => {
             <p className="product-description">
               Vos identifiants sont incorrects
             </p>
-            <button onClick={refreshPage}>Retry</button>
+            <button onClick={refreshPage}>Essayer à nouveau</button>
           </>
         )}
       </div>
