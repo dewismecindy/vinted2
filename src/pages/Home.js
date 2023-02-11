@@ -61,8 +61,16 @@ const Home = () => {
                 className="image-container"
                 key={offer._id}
                 to={`/offer/${offer._id}`}
+                style={{ textDecoration: "none", color: "black" }}
               >
-                <p>{offer.avatar}</p>
+                <div className="offer"></div>
+                <div className="avatar">
+                  <img
+                    src={offer.owner.account.avatar?.secure_url}
+                    alt="url-owner"
+                  />
+                  <p>{offer.owner.account.username}</p>
+                </div>
                 <img src={offer.product_image.secure_url} alt="" />
                 <span>{offer.product_price} €</span>
                 {offer.product_details.map((element, index) => {

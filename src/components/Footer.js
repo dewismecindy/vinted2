@@ -14,7 +14,12 @@ const Footer = () => {
       </div>
       <div className="signature">
         {" "}
-        <p>🫅🏻 By Cindewi 🫅🏻</p>{" "}
+        <p>
+          {" "}
+          <a href="https://www.linkedin.com/in/cindy-dewisme-b7951b251/">
+            🫅🏻 By Cindewi 🫅🏻
+          </a>{" "}
+        </p>{" "}
       </div>
     </footer>
   );
