@@ -53,7 +53,7 @@ const Login = ({ handleToken }) => {
                     const data = async () => {
                       try {
                         const response = await axios.post(
-                          "https://lereacteur-vinted-api.herokuapp.com/offers/user/login",
+                          "https://lereacteur-vinted-api.herokuapp.com/user/login",
                           {
                             email: email,
                             password: password,

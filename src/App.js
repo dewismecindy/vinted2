@@ -14,6 +14,7 @@ import Offerslist from "./pages/Offerslist";
 import Footer from "./components/Footer";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import CheckoutForm from "./components/CheckoutForm";
 function App() {
   const stripePromise = loadStripe(
     "pk_live_51MXnjiLt4xsVvemDPADf6JNNagp6S3vhx7BRUHUSDsSkgmFkkFoIOIUcFxm2g2zfuwnEaF89oXp5DYz1s3RCfCAs00pdEoo98C"
