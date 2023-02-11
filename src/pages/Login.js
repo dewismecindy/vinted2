@@ -77,7 +77,7 @@ const Login = ({ handleToken }) => {
         ) : (
           <>
             <p className="product-description">
-              Vos identifiants sont incorrects, réessayez
+              Vos identifiants sont incorrects
             </p>
             <button onClick={refreshPage}>Retry</button>
           </>

@@ -53,10 +53,6 @@ header button {
   padding-left: 15px;
 }
 
-.search-bar::-webkit-input-placeholder {
-  opacity: 0.2;
-}
-
 .button {
   background-color: white;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -380,15 +376,6 @@ h1 {
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-.input-text {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 18px;
-  margin: 0;
-  padding: 10px;
-  display: flex;
-  padding-left: 8px;
-}
-
 .input::placeholder {
   color: rgb(220, 220, 220);
   opacity: 1;
@@ -429,6 +416,77 @@ h1 {
   cursor: pointer;
 }
 
+h3 {
+  font-size: 20px;
+}
+
+.publish {
+  padding-top: 20px;
+  background-color: #eaedee;
+  height: max-content;
+}
+.background-publish {
+  background-color: white;
+  margin: 45px 0px;
+}
+
+/* .submit-publish {
+  display: flex;
+  justify-content: flex-end;
+} */
+
+.publish section > div {
+  display: flex;
+  padding: 20px;
+}
+
+.publish section > div > label {
+  width: 50%;
+}
+
+.info-publish {
+  margin-left: 15px;
+}
+
+.checkbox-publish {
+  display: flex;
+  align-items: center;
+}
+
+.publish input {
+  border: none;
+  border-bottom: 0.1px solid #eaedee;
+}
+
+textarea {
+  border: none;
+  border-bottom: 0.1px solid #eaedee;
+  resize: none;
+}
+
+.input-publish {
+  width: 40%;
+}
+
+.add-photo {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.add-photo > div {
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid #2db0ba;
+  background-color: white;
+  color: #2db0ba;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.input-add-photo {
+  display: none;
+}
 .see-all:hover {
   padding: 8px;
   background-color: rgb(245, 245, 245);
@@ -479,18 +537,6 @@ h1 {
   border-radius: 4px;
 }
 
-.input-offer {
-  border: 1px solid rgb(198, 198, 198);
-  border-radius: 4px;
-  outline: none;
-  padding-left: 8px;
-}
-
-.input-offer::-webkit-input-placeholder {
-  padding: 2px;
-  opacity: 0.3;
-}
-
 .offers-list {
   position: relative;
   max-width: 1170px;
@@ -529,35 +575,6 @@ footer > .footer-flex .navBar .buttonOfNavbar:hover {
   text-decoration: underline;
 }
 
-.publish-style {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 18px;
-}
-
-.settings-offer {
-  display: flex;
-  justify-content: space-between;
-  background-color: white;
-  padding: 10px;
-  border-bottom: 1px solid rgba(240, 240, 240, 0.602);
-}
-
-.invisible {
-  width: 100px;
-}
-
-.settings-offer-2 {
-  display: flex;
-  justify-content: space-around;
-  background-color: white;
-  padding: 10px;
-  height: 35px;
-}
-
 .listOffers-2 {
   min-height: 130vh;
   background: rgb(208, 208, 208);
@@ -569,13 +586,6 @@ footer > .footer-flex .navBar .buttonOfNavbar:hover {
   );
 }
 
-.block-publish {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 30px;
-  border: 1px solid rgb(225, 225, 225);
-}
-
 .block-upload {
   display: flex;
   justify-content: center;
@@ -583,32 +593,6 @@ footer > .footer-flex .navBar .buttonOfNavbar:hover {
   background-color: white;
   padding: 50px;
   cursor: pointer;
-}
-
-.button-add-offer {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.input-offer-2 {
-  border-bottom: 1px solid rgb(225, 225, 225);
-  height: 40px;
-  width: 500px;
-  font-size: 20px;
-  margin-bottom: 10px;
-  padding-left: 3px;
-  outline-color: #007782;
-}
-
-.input-offer-descript {
-  border-bottom: 1px solid rgb(225, 225, 225);
-
-  padding-bottom: 100px;
-  width: 500px;
-  font-size: 20px;
-  margin-bottom: 10px;
-  padding-left: 3px;
-  outline-color: #007782;
 }
 
 .page-selector {
@@ -627,26 +611,6 @@ h2 {
   padding-top: 30px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 20px;
-}
-
-.input-offer-descript::-webkit-input-placeholder {
-  padding: 2px;
-  opacity: 0.3;
-}
-
-.input-offer-2::-webkit-input-placeholder {
-  padding: 2px;
-  opacity: 0.3;
-}
-
-.block-publish-2 {
-  background-color: white;
-  height: 165px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 30px;
-  border: 1px solid rgb(225, 225, 225);
 }
 
 /* PAYMENT PAGE */

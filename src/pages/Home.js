@@ -62,8 +62,15 @@ const Home = () => {
                 key={offer._id}
                 to={`/offer/${offer._id}`}
               >
-                <p>{offer.product_name}</p>
+                <p>{offer.avatar}</p>
                 <img src={offer.product_image.secure_url} alt="" />
+                <span>{offer.product_price} €</span>
+                {offer.product_details.map((element, index) => {
+                  return element.TAILLE && <p key={index}>{element.TAILLE} </p>;
+                })}
+                {offer.product_details.map((element, index) => {
+                  return element.MARQUE && <p key={index}>{element.MARQUE} </p>;
+                })}
               </Link>
             </div>
           );
